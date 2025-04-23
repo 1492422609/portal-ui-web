@@ -1,0 +1,616 @@
+
+/** 基础通用 **/
+.postal-border-box, .postal-border-box *{box-sizing: border-box;}
+/* 消除第三方ui可能造成的冲突 */.postal-box, .postal-box *{box-sizing: content-box;}
+.postal-clear{clear: both; *zoom: 1;}
+.postal-clear:after{content:'\20'; clear:both; *zoom:1; display:block; height:0;}
+.postal-inline{position: relative; display: inline-block; *display:inline; *zoom:1; vertical-align: middle;}
+/* 三角形 */.postal-edge{position: relative; display: inline-block; vertical-align: middle; width: 0; height: 0; border-width: 6px; border-style: dashed; border-color: transparent; overflow: hidden;}
+.postal-edge-top{top: -4px; border-bottom-color: #999; border-bottom-style: solid;}
+.postal-edge-right{border-left-color: #999; border-left-style: solid;}
+.postal-edge-bottom{top: 2px; border-top-color: #999; border-top-style: solid;}
+.postal-edge-left{border-right-color: #999; border-right-style: solid;}
+/* 单行溢出省略 */.postal-elip{text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+/* 屏蔽选中 */.postal-unselect,.postal-icon, .postal-disabled{-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;}
+/* 禁用 */.postal-disabled,.postal-disabled:hover{color: #d2d2d2 !important; cursor: not-allowed !important;}
+/* 纯圆角 */.postal-circle{border-radius: 100%;}
+.postal-show{display: block !important;}
+.postal-hide{display: none !important;}
+.postal-shadow-soft{box-shadow:0 0 16px rgba(0, 0, 0, 0.08) ;}
+.postal-shadow-hard{box-shadow:0 2px 2px rgba(0, 0, 0, 0.1) ;}
+
+
+/* 基本布局 */
+.postal-body{ background: #fff; width: 100%; padding:0 4.2%;box-sizing: border-box;}
+.postal-body-gray{ background: var(--postal-bg-gray); width: 100%; padding:0 3.2%;box-sizing: border-box;}
+/** 页面元素 **/
+.postal-btn, .postal-input, .postal-textarea, .postal-upload-button, .postal-select{outline: none; -webkit-appearance: none; transition: all .3s; -webkit-transition: all .3s; box-sizing: border-box;}
+
+
+/* 背景颜色 */
+.postal-bg-default{background-color: #18AE67 !important; } /*主色调*/
+.postal-bg-danger{background-color: #FF5446 !important; } /*背景红 警示色*/
+.postal-bg-tips{background-color: #FF933B!important; } /*背景橙 提示色*/
+.postal-bg-link{background-color: #0099E0!important; } /*背景蓝 链接色*/
+/* 背景颜色 light */
+.postal-bg-default-light{background-color: #E8F7F0 !important; } /*主色调*/
+.postal-bg-danger-light{background-color: #FFEEED !important; } /*背景浅红 警示浅色*/
+.postal-bg-tips-light{background-color: #FFF4EC!important; } /*背景浅橙 提示浅色*/
+.postal-bg-link-light{background-color: #E6F5FC!important; } /*背景浅蓝 链接浅色*/
+/* 背景颜色 灰色调 */
+.postal-bg-none{background-color: none ;}/*背景为空*/
+.postal-bg-white{background-color: #fff;}/*背景白色*/
+.postal-bg-gray{background-color: #F5F6F7;}/*背景灰色*/
+.postal-bg-ban{background-color: #C5D1DB;}/*不可点击按钮色*/
+
+/* 字体颜色 */
+.postal-text-default{color: #18AE67 !important; } /*主色调*/
+.postal-text-danger{color: #FF5446!important;} /*字体红 警示字体*/
+.postal-text-tips{color: #FF933B!important;} /*字体橙 提示字体*/
+.postal-text-link{color: #0099E0!important;} /*字体蓝 链接字体*/
+.postal-text-white{color: #ffffff!important;}/*字体白 */
+/* 字体颜色 灰色调 */
+.postal-text1{color: #000000;}/*表字体主要颜色*/
+.postal-text2{color: #66666F;}/*字体次标题色*/
+.postal-text3{color: #99999F;}/*字体副标题色*/
+.postal-text4{color: #C4C4CC;}/*占位字体题色*/
+
+/* 描边色 */
+.postal-border-default{border-color: #18AE67 !important; } /*主色调*/
+.postal-border-danger{border-color: #FF5446 !important;} /*描边红*/
+.postal-border-tips{border-color: #FF933B !important;} /*描边橙*/
+.postal-border-link{border-color: #0099E0 !important;} /*描边蓝*/
+.postal-border-gray{border-color: #E4E5E6;} /*描边灰*/
+
+/* 描边 */
+.postal-line{border:0.5px solid #e4e5e6; }
+.postal-line-down{border-bottom:0.5px solid #e4e5e6; }
+.postal-line-up{border-top: 0.5px solid #e4e5e6;}
+.postal-line-left{border-left: 0.5px solid #e4e5e6;}
+.postal-line-right{border-right: 0.5px solid #e4e5e6;}
+
+/* 字体 */
+h1, .postal-T1{font-size: 17px;}
+h2, .postal-T2{font-size: 16px;}
+h3, .postal-T3{font-size: 15px;}
+h4, .postal-T4{font-size: 14px;}
+h5, .postal-T5{font-size: 13px;}
+h6, .postal-T6{font-size: 12px;}
+.postal-T7{font-size: 10px;}
+
+.postal-t-a-c{
+  text-align: center !important;
+}
+.postal-t-a-l{
+  text-align: left !important;
+}
+.postal-t-a-r{
+  text-align: right !important;
+}
+/*
+
+  面板
+ 
+*/
+
+
+/* 折叠面板 */
+.postal-collapse{border-width: 1px; border-style: solid; border-radius: 2px;}
+.postal-colla-item,
+.postal-colla-content{border-top-width: 1px; border-top-style: solid;}
+.postal-colla-item:first-child{border-top: none;}
+.postal-colla-title{position: relative; height: 42px; line-height: 42px; padding: 0 15px 0 35px; color: #333; background-color: #f2f2f2; cursor: pointer; font-size: 14px; overflow: hidden;}
+.postal-colla-content{display: none; padding: 10px 15px; line-height: 22px; color: #666;}
+.postal-colla-icon{position: absolute; left: 15px; top: 0; font-size: 14px;}
+
+/* 卡片面板 */
+.postal-card{margin-bottom: 15px; border-radius: 2px; background-color: #fff; box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);}
+.postal-card:last-child{margin-bottom: 0;}
+.postal-card-header{position: relative; height: 42px; line-height: 42px; padding: 0 15px; border-bottom: 1px solid #f6f6f6; color: #333; border-radius: 2px 2px 0 0; font-size: 14px;}
+.postal-card-body{position: relative; padding: 10px 15px; line-height: 24px;}
+.postal-card-body[pad15]{padding: 15px;}
+.postal-card-body[pad20]{padding: 20px;}
+.postal-card-body .postal-table{margin: 5px 0;}
+.postal-card .postal-tab{margin: 0;}
+
+
+
+
+
+
+/* 边框 */
+.postal-quote-nm, 
+.postal-elem-field,
+.postal-collapse, 
+.postal-colla-item, 
+.postal-colla-content,
+.postal-badge-rim,
+.postal-tab-title,
+.postal-tab-title .postal-this:after,
+.postal-tab-bar,
+.postal-tab-card,
+.postal-input, .postal-textarea, .postal-select,
+.postal-form-pane .postal-form-label, 
+.postal-form-pane .postal-form-item[pane],
+.postal-layedit, .postal-layedit-tool{border-color: #EAEAEB;}
+
+
+
+/* 文本区域 */
+.postal-text a:not(.postal-btn){color: #01AAED;}
+.postal-text a:not(.postal-btn):hover{text-decoration: underline;}
+.postal-text ul{padding: 5px 0 5px 15px;}
+.postal-text ul li{margin-top: 5px; list-style-type: disc;}
+.postal-text em,
+.postal-word-aux{color: #999 !important; padding: 0 5px !important;}
+
+/* 基础按钮 */
+.postal-btn{display: inline-block; vertical-align: middle;  background-color: var(--postal-bg-default); background-color:#18AE67; color:#fff;font-weight:normal; text-align: center;  border: none;  cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;}
+.postal-btn:active{filter:alpha(opacity=10);}
+/*按钮尺寸*/
+/* 大型 */
+.postal-btn-lg{padding:10px 20px;font-size: 16px;width: 100%;border-radius: 8px;}
+/* 常规 */
+.postal-btn-nm{padding: 8px 16px; font-size: 14px;border-radius: 4px;}
+/* 小型 */
+.postal-btn-sm{padding: 6px 12px; font-size: 12px;border-radius: 4px;}
+/* 圆角 */
+.postal-btn-radius{border-radius: 100px;}
+
+.postal-btn .postal-icon{margin-right: 4px; font-size: 16px; vertical-align: bottom; vertical-align: middle\0;}
+/* 朴素按钮1*/
+.postal-btn-primary{border: 1px solid #18AE67; background-color: #fff; color:#18AE67;}
+/* 朴素按钮2 */
+.postal-btn-primary2{ background-color: #E8F7F0; color:#18AE67;}
+/* 灰色按钮 */
+.postal-btn-gray{border: none; background-color: #F0F1F2; color: #66666F;}
+/* 禁用按钮 */
+.postal-btn-disabled{ background-color: #C5D1DB; color: #fff;}
+/* 禁用 */
+.postal-btn-disabled,.postal-btn-disabled:hover,.postal-btn-disabled:active{cursor: not-allowed; opacity: 1;}
+
+
+
+/* 流体 */
+.postal-btn-fluid{width: 100%;}
+/* 按钮组 */
+.postal-btn-group{display: inline-block; vertical-align: middle; font-size: 0;}
+.postal-btn-group .postal-btn{margin-left: 0!important; margin-right: 0!important; border-left: 1px solid rgba(255,255,255,.5); border-radius: 0;}
+.postal-btn-group .postal-btn:first-child{border-left: none; border-radius: 4px 0 0 4px;}
+.postal-btn-group .postal-btn:last-child{border-radius: 0 4px 4px 0;}
+.postal-btn-group .postal-btn+.postal-btn{margin-left: 0;}
+.postal-btn-group+.postal-btn-group{margin-left: 12px;}
+
+
+/** 表单 **/
+.postal-input, .postal-textarea, .postal-select{font-size: 14px; line-height: 22px; border-width: 1px; border-style: solid;border-color: #EAEAEB;  background-color: #fff; border-radius: 2px;padding: 8px 12px;}
+.postal-input::-webkit-input-placeholder,
+.postal-textarea::-webkit-input-placeholder,
+.postal-select::-webkit-input-placeholder{line-height: 1.57;color: #CCCCCF;}
+.postal-input, .postal-textarea{display: block; width: 100%; padding-left: 12px;}
+.postal-input:hover, .postal-textarea:hover{border-color: #CCCCCF !important;}
+.postal-input:focus, .postal-textarea:focus{border-color: #0099E0 !important;}
+.postal-textarea{position: relative; min-height: 100px; height: auto; line-height: 20px; padding: 6px 10px; resize: vertical;}
+.postal-select{padding: 0 10px;}
+.postal-form select, 
+.postal-form input[type=checkbox],
+.postal-form input[type=radio]{display: none;}
+.postal-form *[lay-ignore]{display: initial;}
+
+.postal-form-item{ clear: both; *zoom: 1;}
+.postal-form-item:after{content:'\20'; clear: both; *zoom: 1; display: block; height:0;}
+.postal-form-label{position: relative; float: left; display: block; padding: 9px 12px 9px 0;  width: 64px; font-weight: 400;font-size: 14px; line-height: 22px; text-align: right;color: #33333F;}
+.postal-form-label-col{display: block; float: none; padding: 9px 0; line-height: 20px; text-align: left;}
+.postal-form-item .postal-inline{margin-bottom: 5px; margin-right: 10px;}
+.postal-input-block, .postal-input-inline{position: relative;}
+.postal-input-block{margin-left: 76px; min-height: 40px;}
+.postal-input-inline{display: inline-block; vertical-align: middle;}
+.postal-form-item .postal-input-inline{float: left; width: 190px; margin-right: 10px;}
+.postal-form-text .postal-input-inline{width: auto;}
+
+/* 分割块 */.postal-form-mid{position: relative; float: left; display: block; padding: 9px 0 !important; line-height: 20px; margin-right: 10px;}
+/* 警告域 */.postal-form-danger:focus
+,.postal-form-danger+.postal-form-select .postal-input{border-color: #FF5722 !important;}
+
+
+/* 下拉选择 */.postal-form-select{position: relative;}
+.postal-form-select .postal-input{padding-right: 30px; cursor: pointer;}
+.postal-form-select .postal-edge{position: absolute; right: 10px; top: 50%; margin-top: -3px; cursor: pointer; border-width: 6px; border-top-color: #c2c2c2; border-top-style: solid; transition: all .3s; -webkit-transition: all .3s;}
+.postal-form-select dl{display: none; position: absolute; left: 0; top: 42px; padding: 5px 0; z-index: 899; min-width: 100%; border: 1px solid #d2d2d2; max-height: 300px; overflow-y: auto; background-color: #fff; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,.12); box-sizing: border-box;}
+.postal-form-select dl dt,
+.postal-form-select dl dd{padding: 0 10px; line-height: 36px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.postal-form-select dl dt{font-size: 12px; color: #999;}
+.postal-form-select dl dd{cursor: pointer;}
+.postal-form-select dl dd:hover{background-color: #f2f2f2; -webkit-transition: .5s all; transition: .5s all;}
+.postal-form-select .postal-select-group dd{padding-left: 20px;}
+.postal-form-select dl dd.postal-select-tips{padding-left: 10px !important; color: #999;}
+.postal-form-select dl dd.postal-this{background-color: #5FB878; color: #fff;}
+.postal-form-select dl dd.postal-disabled{background-color: #fff;}
+.postal-form-selected dl{display: block;}
+.postal-form-selected .postal-edge{margin-top: -9px; -webkit-transform:rotate(180deg); transform: rotate(180deg);}
+.postal-form-selected .postal-edge{margin-top: -3px\0; }
+:root .postal-form-selected .postal-edge{margin-top: -9px\0/IE9;}
+.postal-form-selectup dl{top: auto; bottom: 42px;}
+.postal-select-none{margin: 5px 0; text-align: center; color: #999;}
+
+.postal-select-disabled .postal-disabled{border-color: #eee !important;}
+.postal-select-disabled .postal-edge{border-top-color: #d2d2d2}
+
+/* 复选框 */.postal-form-checkbox{position: relative; display: inline-block; vertical-align: middle; height: 30px; line-height: 30px; margin-right: 10px; padding-right: 30px; background-color: #fff; cursor: pointer; font-size: 0;  -webkit-transition: .1s linear; transition: .1s linear; box-sizing: border-box;}
+.postal-form-checkbox *{display: inline-block; vertical-align: middle;}
+.postal-form-checkbox span{padding: 0 10px; height: 100%; font-size: 14px; border-radius: 2px 0 0 2px; background-color: #d2d2d2; color: #fff; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.postal-form-checkbox:hover span{background-color: #c2c2c2;}
+.postal-form-checkbox i{position: absolute; right: 0; top: 0; width: 30px; height: 28px; border: 1px solid #d2d2d2; border-left: none; border-radius: 0 2px 2px 0; color: #fff; font-size: 20px; text-align: center;}
+.postal-form-checkbox:hover i{border-color: #c2c2c2; color: #c2c2c2;}
+.postal-form-checked, .postal-form-checked:hover{border-color: #5FB878;}
+.postal-form-checked span, .postal-form-checked:hover span{background-color: #5FB878;}
+.postal-form-checked i, .postal-form-checked:hover i{color: #5FB878;}
+.postal-form-item .postal-form-checkbox{margin-top: 4px;}
+
+
+.postal-checkbox-disbaled{border-color: #e2e2e2 !important;}
+.postal-checkbox-disbaled span{background-color: #e2e2e2 !important;}
+.postal-checkbox-disbaled i{border-color: #e2e2e2 !important;}
+.postal-checkbox-disbaled:hover i{color: #fff !important;}
+
+/* 单选框 */
+*[lay-radio]{display: none;}
+.postal-form-radio{display: inline-block; vertical-align: middle; line-height: 28px; margin: 6px 10px 0 0; padding-right: 10px; cursor: pointer; font-size: 0;}
+.postal-form-radio *{display: inline-block; vertical-align: middle; font-size: 14px;}
+.postal-form-radio>i{margin-right: 8px; font-size: 22px; color: #c2c2c2;}
+.postal-form-radioed>i,.postal-form-radio>i:hover{color: #5FB878;}
+.postal-radio-disbaled>i{color: #e2e2e2 !important;}
+
+
+/** 表单响应式 **/
+@media screen and (max-width: 450px) {
+  .postal-form-item .postal-form-label{text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+  .postal-form-item .postal-inline{display: block; margin-right: 0; margin-bottom: 20px; clear: both;}
+  .postal-form-item .postal-inline:after{content:'\20'; clear:both; display:block; height:0;}
+  .postal-form-item .postal-input-inline{display: block; float: none; left: -3px; width: auto; margin: 0 0 10px 112px; }
+  .postal-form-item .postal-input-inline+.postal-form-mid{margin-left: 110px; top: -5px; padding: 0;}
+  .postal-form-item .postal-form-checkbox{margin-right: 5px; margin-bottom: 5px;}
+}
+
+/** 富文本编辑器 **/
+.postal-layedit{border-width: 1px; border-style: solid; border-radius: 2px;}
+.postal-layedit-tool{padding: 3px 5px; border-bottom-width: 1px; border-bottom-style: solid; font-size: 0;}
+.layedit-tool-fixed{position: fixed; top: 0; border-top: 1px solid #e2e2e2;}
+.postal-layedit-tool .layedit-tool-mid,
+.postal-layedit-tool .postal-icon{display: inline-block; vertical-align: middle; text-align: center; font-size: 14px;}
+.postal-layedit-tool .postal-icon{position: relative; width: 32px; height: 30px; line-height: 30px; margin: 3px 5px; border-radius: 2px; color: #777; cursor: pointer; border-radius: 2px;}
+.postal-layedit-tool .postal-icon:hover{color: #393D49;}
+.postal-layedit-tool .postal-icon:active{color: #000;}
+.postal-layedit-tool .layedit-tool-active{background-color: #e2e2e2; color: #000;}
+.postal-layedit-tool .postal-disabled,
+.postal-layedit-tool .postal-disabled:hover{color: #d2d2d2; cursor: not-allowed;}
+.postal-layedit-tool .layedit-tool-mid{width: 1px; height: 18px; margin: 0 10px; background-color: #d2d2d2;}
+
+.layedit-tool-html{width: 50px !important; font-size: 30px !important;}
+.layedit-tool-b,
+.layedit-tool-code,
+.layedit-tool-help{font-size: 16px !important;}
+.layedit-tool-d,
+.layedit-tool-unlink,
+.layedit-tool-face,
+.layedit-tool-image{font-size: 18px !important;}
+.layedit-tool-image input{position: absolute; font-size: 0; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.01; filter: Alpha(opacity=1); cursor: pointer;}
+
+.postal-layedit-iframe iframe{display: block; width: 100%;}
+#LAY_layedit_code{overflow: hidden;}
+
+
+
+/** 文件上传 **/
+.postal-upload-file{display: none!important; opacity: .01; filter: Alpha(opacity=1);}
+.postal-upload-list{margin: 10px 0;}
+.postal-upload-choose{padding: 0 10px; color: #999;}
+.postal-upload-drag{position: relative; display: inline-block; padding: 30px; border: 1px dashed #e2e2e2; background-color: #fff; text-align: center; cursor: pointer; color: #999;}
+.postal-upload-drag .postal-icon{font-size: 50px; color: #009688;}
+.postal-upload-drag[lay-over]{border-color: #009688}
+.postal-upload-form{display: inline-block;}
+.postal-upload-iframe{position: absolute; width: 0; height: 0; border: 0; visibility: hidden}
+.postal-upload-wrap{position: relative; display: inline-block; vertical-align: middle;}
+.postal-upload-wrap .postal-upload-file{display: block!important; position: absolute; left: 0; top: 0; z-index: 10; font-size: 100px; width: 100%; height: 100%; opacity: .01; filter: Alpha(opacity=1); cursor: pointer;}
+
+
+
+/** 导航菜单 **/
+.postal-nav{position: relative; padding: 0 20px; background-color: #393D49; color: #fff; border-radius: 2px; font-size: 0; box-sizing: border-box;}
+.postal-nav *{font-size: 14px;}
+.postal-nav .postal-nav-item{position: relative; display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; line-height: 60px;}
+.postal-nav .postal-nav-item a{display: block; padding: 0 20px; color: #fff; color: rgba(255,255,255,.7); transition: all .3s; -webkit-transition: all .3s;}
+.postal-nav-bar,
+.postal-nav .postal-this:after,
+.postal-nav-tree .postal-nav-itemed:after{position: absolute; left: 0; top: 0; width: 0; height: 5px; background-color: #5FB878; transition: all .2s; -webkit-transition: all .2s;}
+.postal-nav-bar{z-index: 1000;}
+.postal-nav .postal-this a
+,.postal-nav .postal-nav-item a:hover{color: #fff;}
+.postal-nav .postal-this:after{content: ''; top: auto; bottom: 0; width: 100%;}
+.postal-nav-img{width: 30px; height: 30px; margin-right: 10px; border-radius: 50%;}
+
+.postal-nav .postal-nav-more{content:''; width: 0; height: 0; border-style: dashed; border-color: transparent; overflow: hidden; cursor: pointer; transition: all .2s; -webkit-transition: all .2s;}
+.postal-nav .postal-nav-more{position: absolute; top: 50%; right: 3px; margin-top: -3px; border-width: 6px; border-top-style: solid; border-top-color: #fff; border-top-color: rgba(255,255,255,.7);}
+.postal-nav .postal-nav-mored,
+.postal-nav-itemed > a .postal-nav-more{margin-top: -9px; border-style: dashed; border-color: transparent; border-bottom-style: solid; border-bottom-color: #fff;}
+
+
+.postal-nav-child{display: none; position: absolute; left: 0; top: 65px; min-width: 100%; line-height: 36px; padding: 5px 0;  box-shadow: 0 2px 4px rgba(0,0,0,.12); border: 1px solid #d2d2d2; background-color: #fff; z-index: 100; border-radius: 2px; white-space: nowrap;}
+.postal-nav .postal-nav-child a{color: #333;}
+.postal-nav .postal-nav-child a:hover{background-color: #f2f2f2; color: #000;}
+.postal-nav-child dd{position: relative;}
+.postal-nav-child dd.postal-this{background-color: #5FB878; color: #fff;}
+.postal-nav .postal-nav-child dd.postal-this a{background-color: #5FB878; color: #fff;}
+.postal-nav-child dd.postal-this:after{display: none;}
+
+/* 垂直导航菜单 */.postal-nav-tree{width: 200px; padding: 0;}
+.postal-nav-tree .postal-nav-item{display: block; width: 100%; line-height: 45px;}
+.postal-nav-tree .postal-nav-item a{position: relative; height: 45px; line-height: 45px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.postal-nav-tree .postal-nav-item a:hover{background-color: #4E5465;}
+.postal-nav-tree .postal-nav-bar{width: 5px; height: 0;}
+.postal-nav-tree .postal-this,
+.postal-nav-tree .postal-this>a,
+.postal-nav-tree .postal-this>a:hover,
+.postal-nav-tree .postal-nav-child dd.postal-this,
+.postal-nav-tree .postal-nav-child dd.postal-this a{background-color: #009688; color: #fff;}
+.postal-nav-tree .postal-this:after{display: none;}
+.postal-nav-tree .postal-nav-title a,
+.postal-nav-tree .postal-nav-title a:hover,
+.postal-nav-itemed>a{color: #fff !important;}
+.postal-nav-tree .postal-nav-bar{background-color: #009688;}
+
+.postal-nav-tree .postal-nav-child{position: relative; z-index: 0; top: 0; border: none; box-shadow: none;}
+.postal-nav-tree .postal-nav-child a{height: 40px; line-height: 40px;}
+.postal-nav-tree .postal-nav-child a{color: #fff; color: rgba(255,255,255,.7);}
+.postal-nav-tree .postal-nav-child a:hover,
+.postal-nav-tree .postal-nav-child{background: none; color: #fff;}
+.postal-nav-tree .postal-nav-more{right: 10px;}
+
+.postal-nav-itemed>.postal-nav-child{display: block; padding: 0; background-color: rgba(0,0,0,.3) !important;} 
+.postal-nav-itemed>.postal-nav-child>.postal-this>.postal-nav-child{display: block;}
+
+/* 侧边 */.postal-nav-side{position: fixed; top: 0; bottom: 0; left: 0; overflow-x: hidden; z-index: 999;}
+
+/* 导航主题色 */.postal-bg-blue .postal-nav-bar,
+.postal-bg-blue .postal-this:after,
+.postal-bg-blue .postal-nav-itemed:after{background-color: #93D1FF;}
+.postal-bg-blue .postal-nav-child dd.postal-this{background-color: #1E9FFF;}
+.postal-nav-tree.postal-bg-blue .postal-nav-title a,
+.postal-nav-tree.postal-bg-blue .postal-nav-title a:hover, 
+.postal-bg-blue .postal-nav-itemed>a{background-color: #007DDB !important;}
+
+
+/** 面包屑 **/
+.postal-breadcrumb{visibility: hidden; font-size: 0;}
+.postal-breadcrumb>*{font-size: 14px;}
+.postal-breadcrumb a{color: #999 !important;}
+.postal-breadcrumb a:hover{color: #5FB878 !important;}
+.postal-breadcrumb a cite{color: #666; font-style: normal;}
+.postal-breadcrumb span[lay-separator]{margin: 0 10px; color: #999;}
+
+/** Tab选项卡 **/
+.postal-tab{margin: 10px 0; text-align: left !important;}
+.postal-tab[overflow]>.postal-tab-title{overflow: hidden;}
+.postal-tab-title{position: relative; left: 0; height: 40px; white-space: nowrap; font-size: 0; border-bottom-width: 1px; border-bottom-style: solid; transition: all .2s; -webkit-transition: all .2s;}
+.postal-tab-title li{display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; font-size: 14px; transition: all .2s; -webkit-transition: all .2s;}
+.postal-tab-title li{position: relative; line-height: 40px; min-width: 65px; padding: 0 15px; text-align: center; cursor: pointer;}
+.postal-tab-title li a{display: block;}
+.postal-tab-title .postal-this{color: #000;}
+
+.postal-tab-title .postal-this:after{position: absolute; left:0; top: 0; content: ''; width:100%; height: 41px; border-width: 1px; border-style: solid; border-bottom-color: #fff; border-radius: 2px 2px 0 0; box-sizing: border-box; pointer-events: none;}
+.postal-tab-bar{position: absolute; right: 0; top: 0; z-index: 10; width: 30px; height: 39px; line-height: 39px; border-width: 1px; border-style: solid; border-radius: 2px; text-align: center; background-color: #fff; cursor: pointer;}
+.postal-tab-bar .postal-icon{position: relative; display: inline-block; top: 3px; transition: all .3s; -webkit-transition: all .3s;}
+.postal-tab-item{display: none;}
+.postal-tab-more{padding-right: 30px; height: auto !important; white-space: normal !important;}
+.postal-tab-more li.postal-this:after{border-bottom-color: #e2e2e2; border-radius: 2px;}
+.postal-tab-more .postal-tab-bar .postal-icon{top: -2px; top: 3px\0; -webkit-transform: rotate(180deg); transform: rotate(180deg);}
+:root .postal-tab-more .postal-tab-bar .postal-icon{top: -2px\0/IE9;}
+
+.postal-tab-content{padding: 10px;}
+
+/* Tab关闭 */.postal-tab-title li .postal-tab-close{position: relative; display: inline-block; width: 18px; height: 18px; line-height: 20px; margin-left: 8px; top: 1px; text-align: center; font-size: 14px; color: #c2c2c2; transition: all .2s; -webkit-transition: all .2s;}
+.postal-tab-title li .postal-tab-close:hover{border-radius: 2px; background-color: #FF5722; color: #fff;}
+
+/* Tab简洁风格 */.postal-tab-brief > .postal-tab-title .postal-this{color: #009688;}
+.postal-tab-brief > .postal-tab-title .postal-this:after
+,.postal-tab-brief > .postal-tab-more li.postal-this:after{border: none; border-radius: 0; border-bottom: 2px solid #5FB878;}
+.postal-tab-brief[overflow] > .postal-tab-title .postal-this:after{top: -1px;}
+
+/* Tab卡片风格 */.postal-tab-card{border-width: 1px; border-style: solid; border-radius: 2px; box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);}
+.postal-tab-card > .postal-tab-title{ background-color: #f2f2f2;}
+.postal-tab-card > .postal-tab-title li{margin-right: -1px; margin-left: -1px;}
+.postal-tab-card > .postal-tab-title .postal-this{background-color: #fff;     }
+.postal-tab-card > .postal-tab-title .postal-this:after{border-top: none; border-width: 1px; border-bottom-color: #fff;}
+.postal-tab-card > .postal-tab-title .postal-tab-bar{height: 40px; line-height: 40px; border-radius: 0; border-top: none; border-right: none;}
+.postal-tab-card > .postal-tab-more .postal-this{background: none; color: #5FB878;}
+.postal-tab-card > .postal-tab-more .postal-this:after{border: none;}
+
+
+/* 小徽章 */
+.postal-badge,
+.postal-badge-dot,
+.postal-badge-rim{position:relative; display: inline-block; padding: 0 6px; font-size: 12px; text-align: center; background-color: #FF5722; color: #fff; border-radius: 2px;}
+.postal-badge{height: 18px; line-height: 18px;}
+.postal-badge-dot{width: 8px; height: 8px; padding: 0; border-radius: 50%;}
+.postal-badge-rim{height: 18px; line-height: 18px; border-width: 1px; border-style: solid; background-color: #fff; color: #666;}
+
+.postal-btn .postal-badge,
+.postal-btn .postal-badge-dot{margin-left: 5px;}
+.postal-nav .postal-badge,
+.postal-nav .postal-badge-dot{position: absolute; top: 50%; margin: -8px 6px 0;}
+.postal-tab-title .postal-badge,
+.postal-tab-title .postal-badge-dot{left: 5px; top: -2px;}
+
+/* carousel 轮播 */
+.postal-carousel{position: relative; left: 0; top: 0; background-color: #f8f8f8;}
+.postal-carousel>*[carousel-item]{position: relative; width: 100%; height: 100%; overflow: hidden;}
+.postal-carousel>*[carousel-item]:before{position: absolute; content: '\e63d'; left: 50%; top: 50%; width: 100px; line-height: 20px; margin: -10px 0 0 -50px; text-align: center; color: #c2c2c2; font-family:"postal-icon" !important; font-size: 30px; font-style: normal; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+.postal-carousel>*[carousel-item] > *{display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: #f8f8f8; transition-duration: .3s; -webkit-transition-duration: .3s;}
+.postal-carousel-updown > *{-webkit-transition: .3s ease-in-out up; transition: .3s ease-in-out up;}
+.postal-carousel-arrow{display: none\0; opacity: 0; position: absolute; left: 10px; top: 50%; margin-top: -18px; width: 36px; height: 36px; line-height: 36px; text-align: center; font-size: 20px; border: none 0; border-radius: 50%; background-color: rgba(0,0,0,.2); color: #fff; -webkit-transition-duration: .3s; transition-duration: .3s; cursor: pointer;}
+.postal-carousel-arrow[lay-type="add"]{left: auto!important; right: 10px;}
+.postal-carousel[lay-arrow="always"] .postal-carousel-arrow{opacity: 1; left: 20px;}
+.postal-carousel[lay-arrow="always"] .postal-carousel-arrow[lay-type="add"]{right: 20px;}
+.postal-carousel[lay-arrow="none"] .postal-carousel-arrow{display: none;}
+.postal-carousel-arrow:hover,
+.postal-carousel-ind ul:hover{background-color: rgba(0,0,0,.35);}
+.postal-carousel:hover .postal-carousel-arrow{display: block\0; opacity: 1; left: 20px;}
+.postal-carousel:hover .postal-carousel-arrow[lay-type="add"]{right: 20px;}
+.postal-carousel-ind{position: relative; top: -35px; width: 100%; line-height: 0!important; text-align: center; font-size: 0;}
+.postal-carousel[lay-indicator="outside"]{margin-bottom: 30px;}
+.postal-carousel[lay-indicator="outside"] .postal-carousel-ind{top: 10px;}
+.postal-carousel[lay-indicator="outside"] .postal-carousel-ind ul{background-color: rgba(0,0,0,.5);}
+.postal-carousel[lay-indicator="none"] .postal-carousel-ind{display: none;}
+.postal-carousel-ind ul{display: inline-block; padding: 5px; background-color: rgba(0,0,0,.2); border-radius: 10px; -webkit-transition-duration: .3s; transition-duration: .3s;}
+.postal-carousel-ind li{display: inline-block; width: 10px; height: 10px; margin: 0 3px; font-size: 14px; background-color: #e2e2e2; background-color: rgba(255,255,255,.5); border-radius: 50%; cursor: pointer; -webkit-transition-duration: .3s; transition-duration: .3s;}
+.postal-carousel-ind li:hover{background-color: rgba(255,255,255,.7);}
+.postal-carousel-ind li.postal-this{background-color: #fff;}
+.postal-carousel>*[carousel-item]>.postal-this,
+.postal-carousel>*[carousel-item]>.postal-carousel-prev,
+.postal-carousel>*[carousel-item]>.postal-carousel-next{display: block}
+.postal-carousel>*[carousel-item]>.postal-this{left: 0;}
+.postal-carousel>*[carousel-item]>.postal-carousel-prev{left: -100%;}
+.postal-carousel>*[carousel-item]>.postal-carousel-next{left: 100%;}
+.postal-carousel>*[carousel-item]>.postal-carousel-prev.postal-carousel-right,
+.postal-carousel>*[carousel-item]>.postal-carousel-next.postal-carousel-left{left: 0;}
+.postal-carousel>*[carousel-item]>.postal-this.postal-carousel-left{left: -100%;}
+.postal-carousel>*[carousel-item]>.postal-this.postal-carousel-right{left: 100%;}
+
+/* 上下切换 */.postal-carousel[lay-anim="updown"] .postal-carousel-arrow{left: 50%!important; top: 20px; margin: 0 0 0 -18px;}
+.postal-carousel[lay-anim="updown"] .postal-carousel-arrow[lay-type="add"]{top: auto!important; bottom: 20px;}
+.postal-carousel[lay-anim="updown"] .postal-carousel-ind{position: absolute; top: 50%; right: 20px; width: auto; height: auto;}
+.postal-carousel[lay-anim="updown"] .postal-carousel-ind ul{padding: 3px 5px;}
+.postal-carousel[lay-anim="updown"] .postal-carousel-ind li{display: block; margin: 6px 0;}
+
+.postal-carousel[lay-anim="updown"]>*[carousel-item]>*{left: 0!important;}
+.postal-carousel[lay-anim="updown"]>*[carousel-item]>.postal-this{top: 0;}
+.postal-carousel[lay-anim="updown"]>*[carousel-item]>.postal-carousel-prev{top: -100%;}
+.postal-carousel[lay-anim="updown"]>*[carousel-item]>.postal-carousel-next{top: 100%;}
+.postal-carousel[lay-anim="updown"]>*[carousel-item]>.postal-carousel-prev.postal-carousel-right,
+.postal-carousel[lay-anim="updown"]>*[carousel-item]>.postal-carousel-next.postal-carousel-left{top: 0;}
+.postal-carousel[lay-anim="updown"]>*[carousel-item]>.postal-this.postal-carousel-left{top: -100%;}
+.postal-carousel[lay-anim="updown"]>*[carousel-item]>.postal-this.postal-carousel-right{top: 100%;}
+
+/* 渐显切换 */.postal-carousel[lay-anim="fade"]>*[carousel-item]>*{left: 0!important;}
+.postal-carousel[lay-anim="fade"]>*[carousel-item]>.postal-carousel-prev,
+.postal-carousel[lay-anim="fade"]>*[carousel-item]>.postal-carousel-next{opacity: 0;}
+.postal-carousel[lay-anim="fade"]>*[carousel-item]>.postal-carousel-prev.postal-carousel-right,
+.postal-carousel[lay-anim="fade"]>*[carousel-item]>.postal-carousel-next.postal-carousel-left{opacity: 1;}
+.postal-carousel[lay-anim="fade"]>*[carousel-item]>.postal-this.postal-carousel-left,
+.postal-carousel[lay-anim="fade"]>*[carousel-item]>.postal-this.postal-carousel-right{opacity: 0}
+
+/** fixbar **/
+.postal-fixbar{position: fixed; right: 15px; bottom: 15px; z-index: 999999;}
+.postal-fixbar li{width: 50px; height: 50px; line-height: 50px; margin-bottom: 1px; text-align:center; cursor: pointer; font-size:30px; background-color: #9F9F9F; color:#fff; border-radius: 2px; opacity: 0.95;}
+.postal-fixbar li:hover{opacity: 0.85;}
+.postal-fixbar li:active{opacity: 1;}
+.postal-fixbar .postal-fixbar-top{display: none; font-size: 40px;}
+
+
+/** 代码修饰器 **/
+.postal-code{position: relative; margin: 10px 0; padding: 15px; line-height: 20px; border: 1px solid #ddd; border-left-width: 6px; background-color: #F2F2F2; color: #333; font-family: Courier New; font-size: 12px;}
+
+/** 评分组件 By star1029 **/
+.postal-rate,
+.postal-rate *{display: inline-block; vertical-align: middle;}
+.postal-rate{padding: 10px 5px 10px 0; font-size: 0;}
+.postal-rate li i.postal-icon{ font-size: 20px; color: #FFB800;}
+.postal-rate li i.postal-icon{margin-right: 5px; transition: all .3s; -webkit-transition: all .3s;}
+.postal-rate li i:hover{cursor: pointer; transform: scale(1.12); -webkit-transform: scale(1.12);}
+.postal-rate[readonly] li i:hover{cursor: default; transform: scale(1);}
+
+
+/** 动画 **/
+.postal-anim{-webkit-animation-duration: 0.3s; animation-duration: 0.3s; -webkit-animation-fill-mode: both; animation-fill-mode: both;}
+.postal-anim.postal-icon{display: inline-block;}
+.postal-anim-loop{-webkit-animation-iteration-count: infinite; animation-iteration-count: infinite;}
+.postal-trans,
+.postal-trans a{transition: all .3s; -webkit-transition: all .3s;} /* 过度变换 */
+
+/* 循环旋转 */
+@-webkit-keyframes postal-rotate{ 
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}
+}
+@keyframes postal-rotate{
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+.postal-anim-rotate{-webkit-animation-name: postal-rotate; animation-name: postal-rotate; -webkit-animation-duration: 1s; animation-duration: 1s;  -webkit-animation-timing-function: linear; animation-timing-function: linear;}
+
+/* 从最底部往上滑入 */
+@-webkit-keyframes postal-up{ 
+  from {-webkit-transform: translate3d(0, 100%, 0); opacity: 0.3;}
+  to {-webkit-transform: translate3d(0, 0, 0);  opacity: 1;}
+}
+@keyframes postal-up{
+  from {transform: translate3d(0, 100%, 0);  opacity: 0.3;}
+  to {transform: translate3d(0, 0, 0);  opacity: 1;}
+}
+.postal-anim-up{-webkit-animation-name: postal-up; animation-name: postal-up;}
+
+/* 微微往上滑入 */
+@-webkit-keyframes postal-upbit{ 
+  from {-webkit-transform: translate3d(0, 30px, 0); opacity: 0.3;}
+  to {-webkit-transform: translate3d(0, 0, 0);  opacity: 1;}
+}
+@keyframes postal-upbit{
+  from {transform: translate3d(0, 30px, 0);  opacity: 0.3;}
+  to {transform: translate3d(0, 0, 0);  opacity: 1;}
+}
+.postal-anim-upbit{-webkit-animation-name: postal-upbit; animation-name: postal-upbit;}
+
+/* 放大 */
+@-webkit-keyframes postal-scale { 
+  0% {opacity: 0.3; -webkit-transform: scale(.5);}
+  100% {opacity: 1; -webkit-transform: scale(1);}
+}
+@keyframes postal-scale {
+  0% {opacity: 0.3; -ms-transform: scale(.5); transform: scale(.5);}
+  100% {opacity: 1; -ms-transform: scale(1); transform: scale(1);}
+}
+.postal-anim-scale{-webkit-animation-name: postal-scale; animation-name: postal-scale}
+
+/* 弹簧式放大 */
+@-webkit-keyframes postal-scale-spring { 
+  0% {opacity: 0.5; -webkit-transform: scale(.5);}
+  80% {opacity: 0.8; -webkit-transform: scale(1.1);}
+  100% {opacity: 1; -webkit-transform: scale(1);}
+}
+@keyframes postal-scale-spring {
+  0% {opacity: 0.5; transform: scale(.5);}
+  80% {opacity: 0.8; transform: scale(1.1);}
+  100% {opacity: 1; transform: scale(1);}
+}
+.postal-anim-scaleSpring{-webkit-animation-name: postal-scale-spring; animation-name: postal-scale-spring}
+
+/* 渐现 */
+@-webkit-keyframes postal-fadein { 
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@keyframes postal-fadein {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+.postal-anim-fadein{-webkit-animation-name: postal-fadein; animation-name: postal-fadein}
+
+/* 渐隐 */
+@-webkit-keyframes postal-fadeout { 
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes postal-fadeout{
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+.postal-anim-fadeout{-webkit-animation-name: postal-fadeout; animation-name: postal-fadeout}
+
+/* 垂直居中、水平居中 */
+.postal-flex{display: inline-flex; align-items: center;justify-content: center;}
+
+/* 垂直居中、水平平均 */
+.postal-flex-around{display: inline-flex; align-items: center;justify-content: space-around;}
+
+/* 垂直居中、两端对齐平均 */
+.postal-flex-between{display: inline-flex; align-items: center;justify-content: space-between;}
